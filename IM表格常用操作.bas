@@ -1,7 +1,4 @@
-Attribute VB_Name = "IM模块1"
-
-
-
+Attribute VB_Name = "IM表格常用操作"
 '删除空行
 Sub DeleteEmptyRows()
 Dim LastRow As Long, r As Long
@@ -26,8 +23,9 @@ If WorksheetFunction.CountA(Columns(c)) = 0 Then Columns(c).Delete
 Next c
 End Sub
 
-' 任务分类 宏
-Sub 任务分类()
+''说明：对从project上的全选后的任务进行任务分类，去除根节点，仅保留任务的叶子节点
+' Todo:写上列名；如果已经计算过了就不再计算了
+Sub Project任务分类()
     Call DeleteEmptyRows
     Columns("D:F").Select
     Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
